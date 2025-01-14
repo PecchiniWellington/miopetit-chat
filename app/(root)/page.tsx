@@ -5,8 +5,6 @@ import ROUTES from "@/constants/routes";
 const Home = async () => {
   const session = await auth();
 
-  console.log("SESSION", session);
-
   return (
     <>
       <h1 className="text-3xl">Benvenuto in Miopetit social</h1>
@@ -16,9 +14,7 @@ const Home = async () => {
           "use server";
           await signOut({ redirectTo: ROUTES.SIGN_IN });
         }}
-      >
-        <Button type="submit">Log out</Button>
-      </form>
+      ></form>
     </>
   );
 };

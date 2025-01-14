@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Theme from "./Theme";
+import MobileNavigation from "./MobileNavigation";
+import NameTitle from "@/components/ui/name-title";
 
 const Navbar = () => {
   return (
@@ -13,13 +15,12 @@ const Navbar = () => {
           height={23}
           alt="MioPetit Logo"
         />
-        <p className="h2-bold font-space-grotesk text-dark-100 dark:text-light-900 max-sm:hidden">
-          MioPetit <span className="text-primary-500">Social</span>
-        </p>
+        <NameTitle />
       </Link>
       <p>Global Search</p>
       <div className="flex-between gap-5">
         <Theme />
+        <MobileNavigation />
       </div>
     </nav>
   );
