@@ -48,9 +48,9 @@ const RootLayout = async ({
           >
             {children}
           </ThemeProvider>
+          <Toaster />
         </body>
       </SessionProvider>
-      <Toaster />
     </html>
   );
 };
