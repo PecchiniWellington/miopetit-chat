@@ -17,7 +17,7 @@ import NavLinks from "./NavLinks";
 
 const MobileNavigation = () => {
   const buttonClass =
-    "small-medium btn-secondary w-full min-h-[41px] rounded-lg px-4 py-3 shadow-none";
+    "small-medium btn-secondary w-full min-h-[41px] rounded-lg px-4 py-3 shadow-none ";
   return (
     <Sheet>
       <SheetTrigger asChild>
