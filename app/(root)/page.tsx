@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
 import HomeFilter from "@/components/filter/HomeFilter";
 import TitlePages from "@/components/TitlePages";
+import handleError from "@/lib/handlers/error";
+import { error } from "console";
+import { NotFoundError } from "@/lib/http-errors";
 
 const questions = [
   {
