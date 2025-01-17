@@ -9,6 +9,7 @@ export interface IAccount {
   provider: string; // or enum => facebook, github, google etc
   providerAccountId: string;
 }
+export interface IAccountDoc extends IAccount, Document {}
 
 const AccountSchema = new Schema<IAccount>(
   {
