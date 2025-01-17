@@ -6,10 +6,6 @@ import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
 import HomeFilter from "@/components/filter/HomeFilter";
 import TitlePages from "@/components/TitlePages";
-import handleError from "@/lib/handlers/error";
-import { error } from "console";
-import { NotFoundError } from "@/lib/http-errors";
-import dbConnect from "@/lib/mongoose";
 
 const questions = [
   {
@@ -54,22 +50,12 @@ const questions = [
   },
 ];
 
-const test = async () => {
-  try {
-    await dbConnect();
-  } catch (error) {
-    return handleError(error);
-  }
-};
-
 interface SearchParams {
   searchParams: Promise<{ [key: string]: string }>;
 }
 
 const Home = async ({ searchParams }: SearchParams) => {
   const { query = "", filter = "" } = await searchParams;
-
-  await test();
 
   const filteredQuestions = questions.filter((question) => {
     const matchesQuery = question.title

@@ -1,4 +1,4 @@
-const SCHEMA_REF = {
+export const SCHEMA_REF = {
   USER: "User",
   QUESTION: "Question",
   TAG: "Tag",

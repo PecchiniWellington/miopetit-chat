@@ -1,3 +1,4 @@
+import { SCHEMA_REF } from "@/constants/schema-ref";
 import { Schema, model, models } from "mongoose";
 
 export interface ITag {

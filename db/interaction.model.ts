@@ -1,3 +1,4 @@
+import { SCHEMA_REF } from "@/constants/schema-ref";
 import { model, models, Schema, Types } from "mongoose";
 
 export interface IInteraction {
