@@ -1,5 +1,5 @@
 import { SCHEMA_REF } from "@/constants/schema-ref";
-import { Schema, model, models } from "mongoose";
+import { Schema, model, models, Document } from "mongoose";
 
 export interface IUser {
   name: string;
@@ -11,6 +11,8 @@ export interface IUser {
   portfolio?: string;
   reputation?: number;
 }
+
+export interface IUserDoc extends IUser, Document {}
 
 const UserSchema = new Schema(
   {
