@@ -1,25 +1,20 @@
 import { SCHEMA_REF } from "@/constants/schema-ref";
-import { Schema, Types, model, models } from "mongoose";
+import { model, models, Schema, Document } from "mongoose";
 
-export interface ITagQuestion {
-  tag: Types.ObjectId;
-  question: Types.ObjectId;
+export interface ITag {
+  name: string;
+  questions: number;
 }
 
-const TagQuestionSchema = new Schema<ITagQuestion>(
+export interface ITagDoc extends ITag, Document {}
+const TagSchema = new Schema<ITag>(
   {
-    tag: { type: Schema.Types.ObjectId, ref: SCHEMA_REF.TAG, required: true },
-    question: {
-      type: Schema.Types.ObjectId,
-      ref: SCHEMA_REF.QUESTION,
-      required: true,
-    },
+    name: { type: String, required: true, unique: true },
+    questions: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
 
-const TagQuestion =
-  models?.TagQuestion ||
-  model<ITagQuestion>(SCHEMA_REF.TAG_QUESTION, TagQuestionSchema);
+const Tag = models?.Tag || model<ITag>(SCHEMA_REF.TAG, TagSchema);
 
-export default TagQuestion;
+export default Tag;

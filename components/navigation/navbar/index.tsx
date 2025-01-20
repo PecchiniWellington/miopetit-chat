@@ -22,7 +22,7 @@ const Navbar = async () => {
         />
 
         <p className="h2-bold font-space-grotesk text-dark-100 dark:text-light-900 max-sm:hidden">
-          MioPetit<span className="text-primary-500">Social</span>
+          Dev<span className="text-primary-500">Flow</span>
         </p>
       </Link>
 
@@ -31,14 +31,14 @@ const Navbar = async () => {
       <div className="flex-between gap-5">
         <Theme />
 
-        {/* {session?.user?.id && (
+        {session?.user?.id && (
           <UserAvatar
             id={session.user.id}
             name={session.user.name!}
             imageUrl={session.user?.image}
           />
         )}
- */}
+
         <MobileNavigation />
       </div>
     </nav>

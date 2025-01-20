@@ -14,7 +14,6 @@ import {
 import ROUTES from "@/constants/routes";
 
 import NavLinks from "./NavLinks";
-import NavLinkProfile from "./NavLinkProfile";
 
 const MobileNavigation = async () => {
   const session = await auth();
@@ -45,7 +44,7 @@ const MobileNavigation = async () => {
           />
 
           <p className="h2-bold font-space-grotesk text-dark-100 dark:text-light-900">
-            MioPetit<span className="text-primary-500">Social</span>
+            Dev<span className="text-primary-500">Flow</span>
           </p>
         </Link>
 
@@ -53,7 +52,6 @@ const MobileNavigation = async () => {
           <SheetClose asChild>
             <section className="flex h-full flex-col gap-6 pt-16">
               <NavLinks isMobileNav />
-              <NavLinkProfile isMobileNav session={session} />
             </section>
           </SheetClose>
 

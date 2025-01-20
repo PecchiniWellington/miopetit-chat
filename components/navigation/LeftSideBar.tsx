@@ -8,9 +8,6 @@ import ROUTES from "@/constants/routes";
 
 import NavLinks from "./navbar/NavLinks";
 import { Button } from "../ui/button";
-import UserAvatar from "../UserAvatar";
-import { cn } from "@/lib/utils";
-import NavLinkProfile from "./navbar/NavLinkProfile";
 
 const LeftSidebar = async () => {
   const session = await auth();
@@ -20,8 +17,8 @@ const LeftSidebar = async () => {
     <section className="custom-scrollbar background-light900_dark200 light-border sticky left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]">
       <div className="flex flex-1 flex-col gap-6">
         <NavLinks userId={userId} />
-        <NavLinkProfile session={session} />
       </div>
+
       <div className="flex flex-col gap-3">
         {userId ? (
           <form

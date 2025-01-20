@@ -1,4 +1,3 @@
-import { ActionResponse } from "@/types/globals";
 import { RequestError } from "../http-errors";
 import logger from "../logger";
 import handleError from "./error";

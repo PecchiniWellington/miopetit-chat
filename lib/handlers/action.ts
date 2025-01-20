@@ -5,7 +5,7 @@ import { ZodError, ZodSchema } from "zod";
 
 import { auth } from "@/auth";
 
-import { UnAuthorizedError, ValidationError } from "../http-errors";
+import { UnauthorizedError, ValidationError } from "../http-errors";
 import dbConnect from "../mongoose";
 
 type ActionOptions<T> = {
@@ -44,7 +44,7 @@ async function action<T>({
     session = await auth();
 
     if (!session) {
-      return new UnAuthorizedError();
+      return new UnauthorizedError();
     }
   }
 

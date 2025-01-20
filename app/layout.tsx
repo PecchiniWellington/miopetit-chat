@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description:
     "MioPetit Social is an engaging online platform designed to connect pet lovers with their furry companions in a fun and interactive way. It’s more than just a social network—it’s a community where pet owners can share their experiences, exchange advice, and create meaningful connections based on their love for animals.",
   icons: {
-    icon: "/image/site-logo.svg",
+    icon: "/images/petitLogo.png",
   },
 };
 

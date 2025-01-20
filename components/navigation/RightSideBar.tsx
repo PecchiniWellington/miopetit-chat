@@ -1,101 +1,55 @@
 import ROUTES from "@/constants/routes";
 import Image from "next/image";
 import Link from "next/link";
-import { title } from "process";
 import React from "react";
 import TagCard from "../cards/TagCard";
 
 const hotQuestions = [
-  {
-    _id: "1",
-    title: "How to create a custom hook in React?",
-    votes: 10,
-    answers: 5,
-  },
-  {
-    _id: "2",
-    title: "How to use React Router?",
-    votes: 5,
-    answers: 3,
-  },
-  {
-    _id: "3",
-    title: "How to use Redux?",
-    votes: 3,
-    answers: 2,
-  },
-  {
-    _id: "4",
-    title: "How to use Next.js?",
-    votes: 2,
-    answers: 1,
-  },
+  { _id: "1", title: "How to create a custom hook in React?" },
+  { _id: "2", title: "How to use React Query?" },
+  { _id: "3", title: "How to use Redux?" },
+  { _id: "4", title: "How to use React Router?" },
+  { _id: "5", title: "How to use React Context?" },
 ];
 
 const popularTags = [
-  {
-    _id: "1",
-    name: "React",
-    questions: 10,
-  },
-  {
-    _id: "2",
-    name: "JavaScript",
-    questions: 5,
-  },
-  {
-    _id: "3",
-    name: "TypeScript",
-    questions: 3,
-  },
-  {
-    _id: "4",
-    name: "Node.js",
-    questions: 2,
-  },
-  {
-    _id: "5",
-    name: "Next.js",
-    questions: 5,
-  },
+  { _id: "1", name: "react", questions: 100 },
+  { _id: "2", name: "javascript", questions: 200 },
+  { _id: "3", name: "typescript", questions: 150 },
+  { _id: "4", name: "nextjs", questions: 50 },
+  { _id: "5", name: "react-query", questions: 75 },
 ];
 
-const TitleRightSideBar = ({ title }: { title: string }) => (
-  <h3 className="h3-bold text-dark200_light900">{title}</h3>
-);
-
-const RightSideBar = () => {
+const RightSidebar = () => {
   return (
-    <section className="pt-36 custom-scrollbar background-light900_dark200 light-border sticky right-0 top-0 h-screen flex flex-col w-[350px] justify-between overflow-y-auto border-l p-6 shadow-light-300 dark:shadow-none max-xl:hidden">
+    <section className="pt-36 custom-scrollbar background-light900_dark200 light-border sticky right-0 top-0 flex h-screen w-[350px] flex-col gap-6 overflow-y-auto border-l p-6 shadow-light-300 dark:shadow-none max-xl:hidden">
       <div>
-        <TitleRightSideBar title="Top Questions" />
+        <h3 className="h3-bold text-dark200_light900">Top Questions</h3>
+
         <div className="mt-7 flex w-full flex-col gap-[30px]">
-          {hotQuestions.map(({ _id, title, votes, answers }) => (
+          {hotQuestions.map(({ _id, title }) => (
             <Link
-              href={ROUTES.PROFILE(_id)}
               key={_id}
-              className="flex cursor-pointer justify-between gap-7 items-center"
+              href={ROUTES.PROFILE(_id)}
+              className="flex cursor-pointer items-center justify-between gap-7"
             >
               <p className="body-medium text-dark500_light700">{title}</p>
+
               <Image
-                height={20}
-                width={20}
                 src="/icons/chevron-right.svg"
                 alt="Chevron"
+                width={20}
+                height={20}
                 className="invert-colors"
               />
-              {/* <div className="flex gap-2">
-                  <span className="text-dark400_light800">{votes} votes</span>
-                  <span className="text-dark400_light800">
-                    {answers} answers
-                  </span>
-                </div> */}
             </Link>
           ))}
         </div>
       </div>
+
       <div className="mt-16">
-        <TitleRightSideBar title="Popular Tags" />
+        <h3 className="h3-bold text-dark200_light900">Popular Tags</h3>
+
         <div className="mt-7 flex flex-col gap-4">
           {popularTags.map(({ _id, name, questions }) => (
             <TagCard
@@ -113,4 +67,4 @@ const RightSideBar = () => {
   );
 };
 
-export default RightSideBar;
+export default RightSidebar;
