@@ -60,7 +60,7 @@ body {
   }
 
   .text-dark200_light900 {
-    @apply text-dark-200 dark:text-light-900;
+    @apply text-dark-600 dark:text-light-900;
   }
 
   .text-dark200_light800 {
@@ -349,7 +349,7 @@ body {
 }
 
 .dark .mdxeditor-toolbar button:hover svg {
-  color: #000 !important;
+  color: #231522 !important;
 }
 
 .dark .mdxeditor-toolbar [role="separator"] {
