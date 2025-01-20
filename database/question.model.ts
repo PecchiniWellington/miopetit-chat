@@ -1,4 +1,3 @@
-import { SCHEMA_REF } from "@/constants/schema-ref";
 import { model, models, Schema, Types, Document } from "mongoose";
 
 export interface IQuestion {
@@ -17,16 +16,12 @@ const QuestionSchema = new Schema<IQuestion>(
   {
     title: { type: String, required: true },
     content: { type: String, required: true },
-    tags: [{ type: Schema.Types.ObjectId, ref: SCHEMA_REF.TAG }],
+    tags: [{ type: Schema.Types.ObjectId, ref: "Tag" }],
     views: { type: Number, default: 0 },
     upvotes: { type: Number, default: 0 },
     downvotes: { type: Number, default: 0 },
     answers: { type: Number, default: 0 },
-    author: {
-      type: Schema.Types.ObjectId,
-      ref: SCHEMA_REF.USER,
-      required: true,
-    },
+    author: { type: Schema.Types.ObjectId, ref: "User", required: true },
   },
   { timestamps: true }
 );

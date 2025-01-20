@@ -1,10 +1,12 @@
 "use client";
+
+import React from "react";
+
 import AuthForm from "@/components/forms/AuthForm";
 import { signInWithCredentials } from "@/lib/actions/auth.action";
 import { SignInSchema } from "@/lib/validations";
-import React from "react";
 
-const SingIn = () => {
+const SignIn = () => {
   return (
     <AuthForm
       formType="SIGN_IN"
@@ -15,4 +17,4 @@ const SingIn = () => {
   );
 };
 
-export default SingIn;
+export default SignIn;

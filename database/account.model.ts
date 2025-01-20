@@ -1,23 +1,18 @@
-import { SCHEMA_REF } from "@/constants/schema-ref";
-import { model, models, Schema, Types } from "mongoose";
+import { model, models, Schema, Types, Document } from "mongoose";
 
 export interface IAccount {
   userId: Types.ObjectId;
   name: string;
   image?: string;
   password?: string;
-  provider: string; // or enum => facebook, github, google etc
+  provider: string;
   providerAccountId: string;
 }
-export interface IAccountDoc extends IAccount, Document {}
 
+export interface IAccountDoc extends IAccount, Document {}
 const AccountSchema = new Schema<IAccount>(
   {
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: SCHEMA_REF.USER,
-      required: true,
-    },
+    userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
     name: { type: String, required: true },
     image: { type: String },
     password: { type: String },
@@ -27,7 +22,6 @@ const AccountSchema = new Schema<IAccount>(
   { timestamps: true }
 );
 
-const Account =
-  models?.Account || model<IAccount>(SCHEMA_REF.ACCOUNT, AccountSchema);
+const Account = models?.Account || model<IAccount>("Account", AccountSchema);
 
 export default Account;

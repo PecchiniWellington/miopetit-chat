@@ -5,13 +5,14 @@ interface UrlQueryParams {
   key: string;
   value: string;
 }
+
 interface RemoveUrlQueryParams {
   params: string;
   keysToRemove: string[];
 }
 
 export const formUrlQuery = ({ params, key, value }: UrlQueryParams) => {
-  const queryString: any = qs.parse(params);
+  const queryString = qs.parse(params);
 
   queryString[key] = value;
 
@@ -20,11 +21,12 @@ export const formUrlQuery = ({ params, key, value }: UrlQueryParams) => {
     query: queryString,
   });
 };
+
 export const removeKeysFromUrlQuery = ({
   params,
   keysToRemove,
 }: RemoveUrlQueryParams) => {
-  const queryString: any = qs.parse(params);
+  const queryString = qs.parse(params);
 
   keysToRemove.forEach((key) => {
     delete queryString[key];

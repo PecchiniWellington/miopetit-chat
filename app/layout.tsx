@@ -1,37 +1,35 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
-import { ThemeProvider } from "./context/Theme";
-import { Toaster } from "@/components/ui/toaster";
-import { auth } from "@/auth";
 import { SessionProvider } from "next-auth/react";
+import { ReactNode } from "react";
+
+import "./globals.css";
+import { auth } from "@/auth";
+import { Toaster } from "@/components/ui/toaster";
+import ThemeProvider from "@/context/Theme";
 
 const inter = localFont({
-  src: "/fonts/InterVF.ttf",
+  src: "./fonts/InterVF.ttf",
   variable: "--font-inter",
-  weight: "100 200 300 400 500 600 700 800 900",
+  weight: "100 200 300 400 500 700 800 900",
 });
 
 const spaceGrotesk = localFont({
-  src: "/fonts/SpaceGrotesk.ttf",
+  src: "./fonts/SpaceGroteskVF.ttf",
   variable: "--font-space-grotesk",
-  weight: "100 200 300 400 500 600 700 800 900",
+  weight: "300 400 500 700",
 });
 
 export const metadata: Metadata = {
-  title: "Miopetit Social",
+  title: "DevFlow",
   description:
-    "MioPetit Social is an engaging online platform designed to connect pet lovers with their furry companions in a fun and interactive way. It’s more than just a social network—it’s a community where pet owners can share their experiences, exchange advice, and create meaningful connections based on their love for animals.",
+    "A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and more.",
   icons: {
-    icon: "/images/petitLogo.png",
+    icon: "/images/site-logo.svg",
   },
 };
 
-const RootLayout = async ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+const RootLayout = async ({ children }: { children: ReactNode }) => {
   const session = await auth();
 
   return (
@@ -45,7 +43,7 @@ const RootLayout = async ({
       </head>
       <SessionProvider session={session}>
         <body
-          className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
+          className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
         >
           <ThemeProvider
             attribute="class"

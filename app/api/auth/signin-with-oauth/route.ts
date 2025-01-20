@@ -2,13 +2,12 @@ import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 import slugify from "slugify";
 
+import Account from "@/database/account.model";
+import User from "@/database/user.model";
 import handleError from "@/lib/handlers/error";
 import { ValidationError } from "@/lib/http-errors";
 import dbConnect from "@/lib/mongoose";
 import { SignInWithOAuthSchema } from "@/lib/validations";
-import { APIErrorResponse } from "@/types/globals";
-import Account from "@/db/accout.model";
-import User from "@/db/user.model";
 
 export async function POST(request: Request) {
   const { provider, providerAccountId, user } = await request.json();

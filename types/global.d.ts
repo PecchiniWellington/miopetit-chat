@@ -1,6 +1,6 @@
 interface Tag {
   _id: string;
-  name?: string;
+  name: string;
 }
 
 interface Author {

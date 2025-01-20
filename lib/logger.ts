@@ -10,14 +10,14 @@ const logger = pino({
       ? {
           target: "pino-pretty",
           options: {
-            colorized: true,
+            colorize: true,
             ignore: "pid,hostname",
             translateTime: "SYS:standard",
           },
         }
       : undefined,
   formatters: {
-    level: (label: string) => ({ level: label.toUpperCase() }),
+    level: (label) => ({ level: label.toUpperCase() }),
   },
   timestamp: pino.stdTimeFunctions.isoTime,
 });

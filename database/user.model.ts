@@ -1,5 +1,4 @@
-import { SCHEMA_REF } from "@/constants/schema-ref";
-import { Schema, model, models, Document } from "mongoose";
+import { model, models, Schema, Document } from "mongoose";
 
 export interface IUser {
   name: string;
@@ -13,11 +12,10 @@ export interface IUser {
 }
 
 export interface IUserDoc extends IUser, Document {}
-
-const UserSchema = new Schema(
+const UserSchema = new Schema<IUser>(
   {
     name: { type: String, required: true },
-    username: { type: String, required: true },
+    username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     bio: { type: String },
     image: { type: String },
@@ -28,6 +26,6 @@ const UserSchema = new Schema(
   { timestamps: true }
 );
 
-const User = models?.User || model<IUser>(SCHEMA_REF.USER, UserSchema);
+const User = models?.User || model<IUser>("User", UserSchema);
 
 export default User;

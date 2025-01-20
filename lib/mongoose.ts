@@ -14,6 +14,7 @@ interface MongooseCache {
 }
 
 declare global {
+  // eslint-disable-next-line no-var
   var mongoose: MongooseCache;
 }
 
@@ -32,7 +33,7 @@ const dbConnect = async (): Promise<Mongoose> => {
   if (!cached.promise) {
     cached.promise = mongoose
       .connect(MONGODB_URI, {
-        dbName: "miopetit",
+        dbName: "devflow",
       })
       .then((result) => {
         logger.info("Connected to MongoDB");

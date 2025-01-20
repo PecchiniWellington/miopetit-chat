@@ -2,12 +2,13 @@
 
 import mongoose from "mongoose";
 
+import Question from "@/database/question.model";
+import TagQuestion from "@/database/tag-question.model";
+import Tag from "@/database/tag.model";
+
 import action from "../handlers/action";
 import handleError from "../handlers/error";
 import { AskQuestionSchema } from "../validations";
-import TagQuestion from "@/db/tag-question.model";
-import Question from "@/db/question.model";
-import Tag from "@/db/tag.model";
 
 export async function createQuestion(
   params: CreateQuestionParams

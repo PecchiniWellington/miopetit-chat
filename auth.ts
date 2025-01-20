@@ -7,8 +7,8 @@ import Google from "next-auth/providers/google";
 import { api } from "./lib/api";
 import { SignInSchema } from "./lib/validations";
 import { ActionResponse } from "./types/globals";
-import { IAccountDoc } from "./db/accout.model";
-import { IUserDoc } from "./db/user.model";
+import { IAccountDoc } from "./database/accout.model";
+import { IUserDoc } from "./database/user.model";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
