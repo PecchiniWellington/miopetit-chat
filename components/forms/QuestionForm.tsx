@@ -205,7 +205,7 @@ const QuestionForm = () => {
           <Button
             type="submit"
             disabled={isPending}
-            className="primary-gradient w-fit !text-light-900"
+            className="primary-gradient w-fit !text-light-900 border-0.2 border-slate-400"
           >
             {isPending ? (
               <>

@@ -37,6 +37,16 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      borderWidth: {
+        DEFAULT: "1px",
+        "0.2": "0.2px",
+        "0": "0",
+        "2": "2px",
+        "3": "3px",
+        "4": "4px",
+        "6": "6px",
+        "8": "8px",
+      },
       boxShadow: {
         "light-100":
           "0px 12px 20px 0px rgba(184, 184, 184, 0.03), 0px 6px 12px 0px rgba(184, 184, 184, 0.02), 0px 2px 4px 0px rgba(184, 184, 184, 0.03)",

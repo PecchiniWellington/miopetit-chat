@@ -36,7 +36,7 @@ const NavLinks = ({
             key={item.label}
             className={cn(
               isActive
-                ? "primary-gradient rounded-lg text-light-900"
+                ? "primary-gradient rounded-lg text-light-900 border-0.2 border-slate-400"
                 : "text-dark300_light900",
               "flex items-center justify-start gap-4 bg-transparent p-4"
             )}

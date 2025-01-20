@@ -70,7 +70,7 @@ const Home = async ({ searchParams }: SearchParams) => {
         <h1 className="h1-bold text-dark100_light900">All Questions</h1>
 
         <Button
-          className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900"
+          className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900 border-0.2 border-slate-400"
           asChild
         >
           <Link href={ROUTES.ASK_QUESTION}>Ask a Question</Link>
