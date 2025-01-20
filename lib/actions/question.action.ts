@@ -1,6 +1,6 @@
 "use server";
 
-import mongoose, { FilterQuery } from "mongoose";
+import mongoose, { Error, FilterQuery } from "mongoose";
 
 import Question, { IQuestionDoc } from "@/database/question.model";
 import TagQuestion from "@/database/tag-question.model";
@@ -14,7 +14,6 @@ import {
   GetQuestionSchema,
   PaginatedSearchParamsSchema,
 } from "../validations";
-import { auth } from "@/auth";
 
 export async function createQuestion(
   params: CreateQuestionParams
@@ -36,7 +35,6 @@ export async function createQuestion(
   session.startTransaction();
 
   try {
-    console.log("AUTHOR", userId);
     const [question] = await Question.create(
       [{ title, content, author: userId }],
       { session }
@@ -127,7 +125,7 @@ export async function editQuestion(
 
     const tagsToRemove = question.tags.filter(
       (tag: ITagDoc) =>
-        !tags.some((t) => t.toLowerCase() === tag.name.toLowerCase())
+        !tags.some((t: any) => t.toLowerCase() === tag.name.toLowerCase())
     );
 
     const newTagDocuments = [];
